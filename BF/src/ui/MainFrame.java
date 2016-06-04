@@ -8,8 +8,11 @@ import javax.swing.*;
 
 import rmi.RemoteHelper;
 
-
 public class MainFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 377542095280692385L;
 	private JTextArea textArea;
 	private JLabel resultLabel;
 
@@ -19,22 +22,20 @@ public class MainFrame extends JFrame {
 		frame.setLayout(new BorderLayout());
 
 		JMenuBar menuBar = new JMenuBar();
-		JMenu fileMenu = new JMenu("File");
+		MyMenu fileMenu = new MyMenu("File");
 		menuBar.add(fileMenu);
-		JMenuItem newMenuItem = new JMenuItem("New");
-		fileMenu.add(newMenuItem);
-		JMenuItem openMenuItem = new JMenuItem("Open");
-		fileMenu.add(openMenuItem);
-		JMenuItem saveMenuItem = new JMenuItem("Save");
-		fileMenu.add(saveMenuItem);
-		JMenuItem runMenuItem = new JMenuItem("Run");
-		fileMenu.add(runMenuItem);
+		fileMenu.addItems("New","Open","Save","Exit");
+		for(JMenuItem item:fileMenu.getItems()) {
+			item.addActionListener(new MenuItemActionListener());
+		}
 		frame.setJMenuBar(menuBar);
-
-		newMenuItem.addActionListener(new MenuItemActionListener());
-		openMenuItem.addActionListener(new MenuItemActionListener());
-		saveMenuItem.addActionListener(new SaveActionListener());
-		runMenuItem.addActionListener(new MenuItemActionListener());
+		
+		MyMenu runMenu = new MyMenu("Run");
+		runMenu.addItems("Execute");
+		for(JMenuItem item:runMenu.getItems()) {
+			item.addActionListener(new MenuItemActionListener());
+		}
+		menuBar.add(runMenu);
 
 		textArea = new JTextArea();
 		textArea.setMargin(new Insets(10, 10, 10, 10));
@@ -51,7 +52,7 @@ public class MainFrame extends JFrame {
 		frame.setLocation(400, 200);
 		frame.setVisible(true);
 	}
-
+	
 	class MenuItemActionListener implements ActionListener {
 		/**
 		 * 子菜单响应事件

@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 
 import service.UserService;
 
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean login(String username, String password) throws RemoteException {
