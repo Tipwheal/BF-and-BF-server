@@ -6,8 +6,8 @@ import java.io.IOException;
 
 import service.IOService;
 
-public class IOServiceImpl implements IOService{
-	
+public class IOServiceImpl implements IOService {
+
 	@Override
 	public boolean writeFile(String file, String userId, String fileName) {
 		File f = new File(userId + "_" + fileName);
@@ -34,5 +34,5 @@ public class IOServiceImpl implements IOService{
 		// TODO Auto-generated method stub
 		return "OK";
 	}
-	
+
 }
