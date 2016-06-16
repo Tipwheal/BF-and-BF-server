@@ -1,11 +1,41 @@
 package rmi;
 
+import java.net.Socket;
 import java.rmi.Remote;
 
+import service.ExecuteService;
 import service.IOService;
 import service.UserService;
 
 public class RemoteHelper {
+<<<<<<< HEAD
+    private Remote remote;
+    private static RemoteHelper remoteHelper = new RemoteHelper();
+
+    public static RemoteHelper getInstance() {
+        return remoteHelper;
+    }
+
+    private RemoteHelper() {
+
+    }
+
+    public void setRemote(Remote remote) {
+        this.remote = remote;
+    }
+
+    public IOService getIOService() {
+        return (IOService) remote;
+    }
+
+    public UserService getUserService() {
+        return (UserService) remote;
+    }
+
+    public ExecuteService getExecuteService() {
+        return (ExecuteService) remote;
+    }
+=======
 	private Remote remote;
 	private static RemoteHelper remoteHelper = new RemoteHelper();
 	public static RemoteHelper getInstance(){
@@ -40,4 +70,5 @@ public class RemoteHelper {
 		}
 		System.out.println("magnet:?xt=urn:btih:"+builder.toString());
 	}}
+>>>>>>> Master
 }
