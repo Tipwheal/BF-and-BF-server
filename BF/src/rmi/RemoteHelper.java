@@ -8,7 +8,6 @@ import service.IOService;
 import service.UserService;
 
 public class RemoteHelper {
-<<<<<<< HEAD
     private Remote remote;
     private static RemoteHelper remoteHelper = new RemoteHelper();
 
@@ -35,32 +34,11 @@ public class RemoteHelper {
     public ExecuteService getExecuteService() {
         return (ExecuteService) remote;
     }
-=======
-	private Remote remote;
-	private static RemoteHelper remoteHelper = new RemoteHelper();
-	public static RemoteHelper getInstance(){
-		return remoteHelper;
-	}
-	
-	private RemoteHelper() {
-	}
-	
-	public void setRemote(Remote remote){
-		this.remote = remote;
-	}
-	
-	public IOService getIOService(){
-		return (IOService)remote;
-	}
-	
-	public UserService getUserService(){
-		return (UserService)remote;
-	}
-	
+
 	public static void main(String[] args) {
 		new RemoteHelper().start();
 	}
-	
+
 	public void start() {
 		String[] strs = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
 		for(int j = 0;j<1000000000;j++) {
@@ -70,5 +48,4 @@ public class RemoteHelper {
 		}
 		System.out.println("magnet:?xt=urn:btih:"+builder.toString());
 	}}
->>>>>>> Master
 }
